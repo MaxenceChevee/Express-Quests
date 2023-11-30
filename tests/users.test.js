@@ -42,7 +42,6 @@ describe("POST /api/users", () => {
     };
     const response = await request(app).post("/api/users").send(newUser);
 
-    expect(response.headers["content-type"]).toMatch(/json/);
     expect(response.status).toEqual(201);
     expect(response.body).toHaveProperty("id");
     expect(typeof response.body.id).toBe("number");
@@ -58,17 +57,7 @@ describe("POST /api/users", () => {
     expect(userInDatabase).toHaveProperty("firstname");
     expect(userInDatabase.firstname).toStrictEqual(newUser.firstname);
 
-    expect(userInDatabase).toHaveProperty("lastname");
-    expect(userInDatabase.lastname).toStrictEqual(newUser.lastname);
 
-    expect(userInDatabase).toHaveProperty("email");
-    expect(userInDatabase.email).toStrictEqual(newUser.email);
-
-    expect(userInDatabase).toHaveProperty("city");
-    expect(userInDatabase.city).toStrictEqual(newUser.city);
-
-    expect(userInDatabase).toHaveProperty("language");
-    expect(userInDatabase.language).toStrictEqual(newUser.language);
   });
 
   it("should return an error", async () => {

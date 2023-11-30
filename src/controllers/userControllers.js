@@ -6,7 +6,6 @@ const getUsers = (req, res) => {
             res.json(Users); // use res.json instead of console.log
         })
         .catch((err) => {
-            console.error(err);
             res.sendStatus(500);
         });
 };
@@ -24,7 +23,6 @@ const getUserById = (req, res) => {
             }
         })
         .catch((err) => {
-            console.error(err);
             res.sendStatus(500);
         });
 };
@@ -40,7 +38,6 @@ const postUser = (req, res) => {
             res.status(201).send({ id: result.insertId });
         })
         .catch((err) => {
-            console.error(err);
             res.sendStatus(500);
         })
 };
@@ -61,7 +58,6 @@ const updateUser = (req, res) => {
             }
         })
         .catch((err) => {
-            console.error(err);
             res.sendStatus(500);
         });
 };
