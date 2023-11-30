@@ -57,10 +57,22 @@ describe("POST /api/users", () => {
 
     expect(userInDatabase).toHaveProperty("firstname");
     expect(userInDatabase.firstname).toStrictEqual(newUser.firstname);
+
+    expect(userInDatabase).toHaveProperty("lastname");
+    expect(userInDatabase.lastname).toStrictEqual(newUser.lastname);
+
+    expect(userInDatabase).toHaveProperty("email");
+    expect(userInDatabase.email).toStrictEqual(newUser.email);
+
+    expect(userInDatabase).toHaveProperty("city");
+    expect(userInDatabase.city).toStrictEqual(newUser.city);
+
+    expect(userInDatabase).toHaveProperty("language");
+    expect(userInDatabase.language).toStrictEqual(newUser.language);
   });
 
   it("should return an error", async () => {
-    const userWithMissingProps = { firstname: "Harry Potter" };
+    const userWithMissingProps = { firstname: "Harry" };
 
     const response = await request(app)
       .post("/api/users")
