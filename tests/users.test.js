@@ -91,7 +91,7 @@ describe("PUT /api/users/:id", () => {
     const updatedUser = {
       firstname: "Wild is life",
       lastname: "Alan Smithee",
-      email: "2023",
+      email: `${crypto.randomUUID()}@wild.co`,
       city: "paris",
       language: "français",
     };
